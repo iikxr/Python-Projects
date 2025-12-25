@@ -1,21 +1,36 @@
-#Ask for user input
+# Ask for user input
+expression = input("Enter your calculation (e.g., 24 + 4): ")
 
-operation = int(input("What operation would you like to use? 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division: "))
-num1 = float(input("What's your first number?: "))
-num2 = float(input("What's your second number?: "))
+# Parse the expression
+expression = expression.replace(" ", "")  # Remove spaces
 
-x = num1 + num2
-y = num1 - num2
-z = num1 * num2
-t = num1 / num2
-#Setup calculations
-if operation == 1:
-    print(x)
-elif operation == 2:
-    print(y)
-elif operation == 3:
-    print (float(z))
-elif operation == 4:
-    print (float(t))
+# Find the operator
+if "+" in expression:
+    operator = "+"
+    parts = expression.split("+")
+elif "-" in expression:
+    operator = "-"
+    parts = expression.split("-")
+elif "x" in expression or "*" in expression:
+    operator = "x"
+    expression = expression.replace("*", "x")
+    parts = expression.split("x")
+elif "/" in expression:
+    operator = "/"
+    parts = expression.split("/")
 else:
-    print ("Invalid Operation")
+    print("Invalid Operation")
+    exit()
+
+# Convert to numbers and calculate
+num1 = float(parts[0])
+num2 = float(parts[1])
+
+if operator == "+":
+    print(num1 + num2)
+elif operator == "-":
+    print(num1 - num2)
+elif operator == "x" or operator == "*":
+    print(num1 * num2)
+elif operator == "/":
+    print(num1 / num2)
