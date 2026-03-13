@@ -34,3 +34,5 @@ elif operator == "x" or operator == "*":
     print(num1 * num2)
 elif operator == "/":
     print(num1 / num2)
+# Add loop to calculator
+# Add memory system to calculator
