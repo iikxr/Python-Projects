@@ -10,15 +10,15 @@ while True:
             print (random.randint(1, 6))
             time.sleep(1)
 
-            
-            reroll = input("Would you like to roll again? (Yes/No): ")
-            if reroll.lower() == ('yes'):
+            while True:
+                reroll = input("Would you like to roll again? (Yes/No): ")
+                if reroll.lower() == ('yes'):
                     continue
-            elif reroll.lower() == ('no'):
+                elif reroll.lower() == ('no'):
                     print ("Exiting...")
                     time.sleep(0.5)
                     exit()
-            else:
+                else:
                     print ("Invalid input.")
 
     elif user_answer.lower() == ('no'):
